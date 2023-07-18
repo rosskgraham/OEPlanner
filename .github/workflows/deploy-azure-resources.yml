@@ -1,4 +1,10 @@
-on: push 
+on:
+  push:
+    branches:
+      - main
+    paths:
+    - '.github/workflows/deploy-azure-resources.yml'
+    - 'deploy/bicep/**'
 
 jobs:
   deploy:
