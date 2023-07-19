@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "oeplanner"
+version = "0.1.0"
+description = "Over Engineered Planner"
+authors = ["Misc"]
+license = "MIT"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = ">3.10"
+fastapi = "^0.100.0"
+uvicorn = "^0.23.1"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

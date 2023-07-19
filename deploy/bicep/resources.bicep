@@ -16,7 +16,10 @@ param appServicePlanName string
 resource appServicePlan 'Microsoft.Web/serverfarms@2021-03-01' = {
   name: appServicePlanName
   location: location
-  kind: 'app,linux'
+  kind: 'linux'
+  properties: {
+    reserved: true
+  }
   sku: {
     name: 'B1'
     capacity: 1
@@ -69,6 +72,7 @@ resource workerAppService 'Microsoft.Web/sites@2021-03-01' = {
   properties: {
     serverFarmId: appServicePlan.id
     siteConfig: {
+      linuxFxVersion: 'PYTHON|3.10'
       appSettings: [
         {
           name: 'APPINSIGHTS_INSTRUMENTATIONKEY'
@@ -86,6 +90,7 @@ resource apiAppService 'Microsoft.Web/sites@2021-03-01' = {
   properties: {
     serverFarmId: appServicePlan.id
     siteConfig: {
+      linuxFxVersion: 'PYTHON|3.10'
       appSettings: [
         {
           name: 'APPINSIGHTS_INSTRUMENTATIONKEY'
