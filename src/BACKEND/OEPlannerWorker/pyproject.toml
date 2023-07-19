@@ -7,6 +7,7 @@ readme = "README.md"
 
 [tool.poetry.dependencies]
 python = "^3.11"
+celery = {extras = ["azure"], version = "^5.3.1"}
 
 
 [build-system]

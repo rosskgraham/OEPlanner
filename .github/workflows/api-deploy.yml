@@ -22,18 +22,13 @@ jobs:
     - name: Install Poetry
       uses: snok/install-poetry@v1
 
-    - name: Install dependencies
-      working-directory: src/BACKEND/OEPlannerAPI
-      run: poetry install
-
-    - name: Build app
-      working-directory: src/BACKEND/OEPlannerAPI
-      run: poetry build
-
-    - name: Unpack artifact
+    - name: Configure poetry and install dependencies
+      working-directory: ./src/BACKEND/OEPlannerAPI
       run: |
-        tar -xzf ./src/backend/OEPlannerAPI/dist/oeplannerapi-0.1.0.tar.gz
-        rm ./src/backend/OEPlannerAPI/dist/oeplannerapi-0.1.0.tar.gz  
+        python -m venv antenv
+        source antenv/bin/activate
+        poetry export -f requirements.txt --output requirements.txt
+        antenv/bin/pip install -r requirements.txt 
 
     - uses: Azure/login@v1
       with:
@@ -43,6 +38,6 @@ jobs:
       uses: azure/webapps-deploy@v2
       with:
         app-name: ${{ vars.API_APP_SERVICE_NAME }}
-        package: ./src/BACKEND/OEPlannerAPI/dist
+        package: ./src/BACKEND/OEPlannerAPI
         resource-group-name: ${{ vars.RG_NAME }}
-        startup-command: "uvicorn main:app --host 0.0.0.0 --port 8080"
+        startup-command: "python -m uvicorn oeplannerapi.main:app --host 0.0.0.0"

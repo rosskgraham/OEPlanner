@@ -29,9 +29,4 @@ jobs:
         parameters:
           rgName=${{ vars.RG_NAME }}
           location=${{ vars.LOCATION }}
-          uiAppServiceName=${{ vars.UI_APP_SERVICE_NAME }}
-          workerAppServiceName=${{ vars.WORKER_APP_SERVICE_NAME }}
-          apiAppServiceName=${{ vars.API_APP_SERVICE_NAME }}
-          appInsightsName=${{ vars.APP_INSIGHTS_NAME }}
-          logAnalyticsName=${{ vars.LOG_ANALYTICS_NAME }}
-          appServicePlanName=${{ vars.APP_SERVICE_PLAN_NAME }}
+          appName=${{ vars.APP_NAME }}
