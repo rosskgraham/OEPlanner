@@ -274,6 +274,22 @@ yaml = ["PyYAML (>=3.10)"]
 zookeeper = ["kazoo (>=2.8.0)"]
 
 [[package]]
+name = "oeplannerworker"
+version = "0.1.0"
+description = ""
+optional = false
+python-versions = "^3.10"
+files = []
+develop = false
+
+[package.dependencies]
+celery = "^5.3.1"
+
+[package.source]
+type = "directory"
+url = "../OEPlannerWorker"
+
+[[package]]
 name = "prompt-toolkit"
 version = "3.0.39"
 description = "Library for building powerful interactive command lines in Python"
@@ -538,4 +554,4 @@ files = [
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.10"
-content-hash = "23c702832231df55dd12a8e11d4a40e3af40fbae0affe14ac1c16603edb0f2ed"
+content-hash = "9d34fcfd1959dc5ca01f4eb20bc4ac525140aaf3af6b18ce19a5d5b72d5119bf"

@@ -6,8 +6,8 @@ authors = ["Richard Dalziel <RichardDalziel@outlook.com>"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
-python = "^3.11"
-celery = {extras = ["azure"], version = "^5.3.1"}
+python = "^3.10"
+celery = "^5.3.1"
 
 
 [build-system]
