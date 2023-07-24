@@ -1,10 +1,11 @@
-name: OEPlannerAPI
+name: OEPlannerWorker
 
 on:
   push:
     paths:
     - 'src/BACKEND/OEPlannerAPI/**'
-    - '.github/workflows/api-deploy.yml'
+    - 'src/BACKEND/OEPlannerWorker/**'
+    - '.github/workflows/worker-deploy.yml'
 
 jobs:
 
@@ -38,6 +39,6 @@ jobs:
       uses: azure/webapps-deploy@v2
       with:
         app-name: ${{ vars.WORKER_APP_SERVICE_NAME }}
-        package: ./src/BACKEND/OEPlannerAPIOEPlannerWorker
+        package: ./src/BACKEND/OEPlannerWorker
         resource-group-name: ${{ vars.RG_NAME }}
         startup-command: "python -m celery -A oeplannerworker.celery_app worker --loglevel=info"

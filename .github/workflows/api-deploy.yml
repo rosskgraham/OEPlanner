@@ -4,6 +4,7 @@ on:
   push:
     paths:
     - 'src/BACKEND/OEPlannerAPI/**'
+    - 'src/BACKEND/OEPlannerWorker/**'
     - '.github/workflows/api-deploy.yml'
 
 jobs:
