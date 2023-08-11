@@ -3,7 +3,7 @@ from time import sleep
 
 from celery import Celery
 
-app = Celery('oeplannerworker', broker=os.getenv('CELERY_BROKER_URL'))
+app = Celery('oeplannerworker', broker=os.getenv('CELERY_BROKER_URL'), backend=os.getenv('CELERY_RESULTS_BACKEND_URL'))
 
 @app.task(name="wait_for")
 def wait_for(seconds: int, fail: bool = False) -> str:
